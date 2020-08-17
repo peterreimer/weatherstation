@@ -6,12 +6,13 @@ def si_conversion(params):
     """Convert to proper SI units"""
     conversions = {
         "dateutc": ["date", utc2local],
-        "indoortempf": ["temp_indoor", f2c],
         "tempf": ["temp_outdoor", f2c],
+        "windchillf": ["temp_windchill", f2c],
         "dewptf": ["temp_dewpoint", f2c],
+        "indoortempf": ["temp_indoor", f2c],
         "absbaromin": ["pressure_abs", i2h],
         "baromin": ["pressure_rel", i2h],
-        "rainin": ["rain_now", i2m],
+        "rainin": ["rain_rate", i2m],
         "dailyrainin": ["rain_daily", i2m],
         "weeklyrainin": ["rain_weekly", i2m],
         "monthlyrainin": ["rain_monthly", i2m],
@@ -20,7 +21,6 @@ def si_conversion(params):
         "humidity": ["humidity_outdoor", make_float],
         "solarradiation": ["solarradiation", make_float],
         "UV": ["uv_index", make_float],
-        "windchillf": ["temp_windchill", f2c],
         "windspeedmph":["wind_speed", m2k],
         "windgustmph": ["wind_gust", m2k],
         "winddir": ["wind_direction", make_float],
@@ -34,7 +34,7 @@ def si_conversion(params):
     
     # extra: Beauford scale and compass direction of wind
     params_si["wind_compass"] = deg2compass(float(params["winddir"])) 
-    params_si["wind_beaufort"] = wind2beaufort(float(params["windspeedmph"])) 
+    params_si["wind_beaufort"] = mph2beaufort(float(params["windspeedmph"])) 
     return params_si 
 
 def f2c(fahrenheit):
