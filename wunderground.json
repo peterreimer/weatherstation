@@ -1,1 +1,27 @@
-{"ID": "hummelwiese", "PASSWORD": "12345", "indoortempf": "74.1", "tempf": 32.611111111111114, "dewptf": "67.1", "windchillf": "90.7", "indoorhumidity": "62", "humidity": "46", "windspeedmph": "0.0", "windgustmph": "0.0", "winddir": "99", "absbaromin": "29.891", "baromin": "29.891", "rainin": "0.000", "dailyrainin": "0.031", "weeklyrainin": "0.150", "monthlyrainin": "0.240", "yearlyrainin": "0.240", "solarradiation": "101.05", "UV": "1", "dateutc": "2020-08-10 15:22:45", "softwaretype": "EasyWeatherV1.5.2", "action": "updateraw", "realtime": "1", "rtfreq": "5"}
+{
+  "ID": "hummelwiese", 
+  "PASSWORD": "12345", 
+  "indoortempf": "74.1", 
+  "tempf": 32.611111111111114, 
+  "dewptf": "67.1", 
+  "windchillf": "90.7", 
+  "indoorhumidity": "62", 
+  "humidity": "46", 
+  "windspeedmph": "0.0", 
+  "windgustmph": "0.0", 
+  "winddir": "99", 
+  "absbaromin": "29.891",
+  "baromin": "29.891", 
+  "rainin": "0.000", 
+  "dailyrainin": "0.031", 
+  "weeklyrainin": "0.150", 
+  "monthlyrainin": "0.240", 
+  "yearlyrainin": "0.240", 
+  "solarradiation": "101.05", 
+  "UV": "1", 
+  "dateutc": "2020-08-10 15:22:45", 
+  "softwaretype": "EasyWeatherV1.5.2", 
+  "action": "updateraw", 
+  "realtime": "1", 
+  "rtfreq": "5"
+}
