@@ -1,0 +1,4 @@
+graft weatherstation/static
+graft weatherstation/templates
+global-exclude *.pyc
+
