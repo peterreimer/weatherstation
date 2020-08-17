@@ -70,29 +70,22 @@ def utc2local(utc_string):
 def deg2compass(degree):
     """https://stackoverflow.com/questions/7490660/converting-wind-direction-in-angles-to-text-words/7490772#7490772"""
     val = int(( degree / 22.5 ) + 0.5 )
-    arr = ["N","NNO","NO","ONO","O","OSO", "SO", "SSO","S","SSW","SW","WSW","W","WNW","NW","NNW"]
+    arr = ["N", "NNO", "NO", "ONO", "O", "OSO", "SO", "SSO", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]
     return arr[( val % 16 )]
 
 def mph2beaufort(miles):
     kmh = m2k(miles)
-    x = 12
     scale = [1, 5, 11, 19, 28, 38, 49, 61, 74, 88, 102, 117]
+    x = len(scale)
     for beaufort, speed in enumerate(scale):
-        upper_limit = speed
-        if beaufort == 0:
-            lower = 0
-        else:
-            lower = scale[beaufort - 1]
-        print(lower, upper))
-        if (kmh >= lower) and (kmh < upper):
+        lower = 0 if beaufort == 0 else scale[beaufort - 1]
+        if (kmh >= lower) and (kmh < speed):
             x = beaufort
             break
     return x
 
 if __name__ == '__main__':
     
-    #for v in [1.2, 8.1, 4.6, 32.2, 64.4]:
-    #    print("%s: %s"  % (v, mph2beaufort(v)))
-    v = 12
-    print("%s: %s"  % (v, mph2beaufort(v)))
+    for v in [0, 12, 54, 120]:
+        print("%s: %s"  % (v, mph2beaufort(v / 1.609344 )))
 
