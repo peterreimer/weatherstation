@@ -47,11 +47,15 @@ def log(si):
     if not os.path.isdir(data_dir):
         os.makedirs(data_dir)
     csv_file = os.path.join(data_dir, csv_filename)    
-    print(csv_file)
+    # add header only when it's new
+    add_header = False
+    if not os.path.isfile(csv_file):
+        add_header = True
     with open(csv_file, 'a', newline='') as csvfile:
         fieldnames = si.keys()
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        #writer.writeheader()
+        if add_header is True:
+            writer.writeheader()
         writer.writerow(si) 
 
     return "verz erstellt"

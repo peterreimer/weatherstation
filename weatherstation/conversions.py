@@ -33,8 +33,10 @@ def si_conversion(params):
             params_si[new_key] = conversions[key][1](params[key])
     
     # extra: Beauford scale and compass direction of wind
-    params_si["wind_compass"] = deg2compass(float(params["winddir"])) 
-    params_si["wind_beaufort"] = mph2beaufort(float(params["windspeedmph"])) 
+    if "winddir" in params.keys(): 
+        params_si["wind_compass"] = deg2compass(float(params["winddir"])) 
+    if "windspeedmph" in params.keys(): 
+        params_si["wind_beaufort"] = mph2beaufort(float(params["windspeedmph"])) 
     return params_si 
 
 def f2c(fahrenheit):
