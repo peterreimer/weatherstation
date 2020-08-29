@@ -29,7 +29,6 @@ def si_conversion(params):
     for key in conversions.keys():
         new_key = conversions[key][0]
         if key in params.keys():
-            #print("old: %s, new: %s value: %s" % (key, new_key, params[key]))
             params_si[new_key] = conversions[key][1](params[key])
     
     # extra: Beauford scale and compass direction of wind

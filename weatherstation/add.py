@@ -42,7 +42,7 @@ def log(si):
     month = date[1]
     day = date[2]
 
-    csv_filename = "%s%s%s.dat" % (year, month, day)
+    csv_filename = "%s%s%s.csv" % (year, month, day)
     data_dir = os.path.join(current_app.instance_path, year, month)
     if not os.path.isdir(data_dir):
         os.makedirs(data_dir)
