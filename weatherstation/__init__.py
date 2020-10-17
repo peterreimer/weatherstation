@@ -4,7 +4,7 @@ from flask import Flask
 
 def create_app(test_config=None):
     # create and configure the app
-    app = Flask(__name__, instance_relative_config=True)
+    app = Flask(__name__, instance_relative_config=False)
     app.config.from_mapping(
         SECRET_KEY='dev',
         LATEST=os.path.join(app.instance_path, 'latest.json'),
@@ -25,7 +25,7 @@ def create_app(test_config=None):
         pass
 
     from . import add, latest, raw, weather
-    
+
     app.register_blueprint(add.bp)
     app.register_blueprint(latest.bp)
     app.register_blueprint(raw.bp)

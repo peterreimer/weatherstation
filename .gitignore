@@ -1,5 +1,6 @@
 venv/
-
+plot/
+.vscode
 *.pyc
 __pycache__/
 

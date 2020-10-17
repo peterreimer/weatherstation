@@ -46,7 +46,7 @@ def log(si):
     data_dir = os.path.join(current_app.instance_path, year, month)
     if not os.path.isdir(data_dir):
         os.makedirs(data_dir)
-    csv_file = os.path.join(data_dir, csv_filename)    
+    csv_file = os.path.join(data_dir, csv_filename)
     # add header only when it's new
     add_header = False
     if not os.path.isfile(csv_file):
@@ -56,8 +56,6 @@ def log(si):
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         if add_header is True:
             writer.writeheader()
-        writer.writerow(si) 
+        writer.writerow(si)
 
     return "verz erstellt"
-    
-
