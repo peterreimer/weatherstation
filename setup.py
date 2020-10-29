@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='weatherstation',
-    version='0.1',
+    version='0.2.1',
 	author='Peter Reimer',
     author_email='peter@4pi.org',
     packages=find_packages(),

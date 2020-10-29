@@ -31,13 +31,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/latest">
+                <a class="nav-link" href="{{ url_for('latest.latest_measurements') }}">
                   <span data-feather="file"></span>
                   latest
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="raw">
+                <a class="nav-link" href="{{ url_for('raw.latest_measurements') }}">
                   <span data-feather="shopping-cart"></span>
                   raw
                 </a>
