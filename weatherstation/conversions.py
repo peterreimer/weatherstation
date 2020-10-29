@@ -30,17 +30,17 @@ def si_conversion(params):
         new_key = conversions[key][0]
         if key in params.keys():
             params_si[new_key] = conversions[key][1](params[key])
-    
+
     # extra: Beauford scale and compass direction of wind
-    if "winddir" in params.keys(): 
-        params_si["wind_compass"] = deg2compass(float(params["winddir"])) 
-    if "windspeedmph" in params.keys(): 
-        params_si["wind_beaufort"] = mph2beaufort(float(params["windspeedmph"])) 
-    return params_si 
+    if "winddir" in params.keys():
+        params_si["wind_compass"] = deg2compass(float(params["winddir"]))
+    if "windspeedmph" in params.keys():
+        params_si["wind_beaufort"] = mph2beaufort(float(params["windspeedmph"]))
+    return params_si
 
 def f2c(fahrenheit):
     """Convert Fahrenheit to Celcius"""
-    celsius = ( float(fahrenheit) - 32) * 5 / 9 
+    celsius = ( float(fahrenheit) - 32) * 5 / 9
     return round(celsius,1)
 
 def m2k(miles):
@@ -63,7 +63,7 @@ def make_float(value):
     return float(value)
 
 def utc2local(utc_string):
-    """Convert time give in UTC to more portable local time in iso format""" 
+    """Convert time give in UTC to more portable local time in iso format"""
     utc = datetime.strptime(utc_string, "%Y-%m-%d %H:%M:%S")
     local = utc.replace(tzinfo=timezone.utc).astimezone(tz=None)
     return local.isoformat()
@@ -86,7 +86,7 @@ def mph2beaufort(miles):
     return x
 
 if __name__ == '__main__':
-    
+
     for v in [0, 12, 54, 120]:
         print("%s: %s"  % (v, mph2beaufort(v / 1.609344 )))
-
+        
