@@ -5,8 +5,8 @@ from flask import render_template
 from flask import current_app
 
 
-bp = Blueprint("weather", __name__)
+bp = Blueprint("index", __name__)
 
-@bp.route("/weather")
+@bp.route("/")
 def weather():
-    return render_template("weather.html", last_measurement="heute")
+    return render_template("index.html", last_measurement="heute")

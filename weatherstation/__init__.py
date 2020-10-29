@@ -24,11 +24,11 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    from . import add, latest, raw, weather
+    from . import add, latest, raw, index
 
     app.register_blueprint(add.bp)
     app.register_blueprint(latest.bp)
     app.register_blueprint(raw.bp)
-    app.register_blueprint(weather.bp)
+    app.register_blueprint(index.bp)
 
     return app
