@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 {% block title %}Dashboard{% endblock %}
 {% block content %}
-<em>{{ last_measurement }}</em>
+<table>
+    {% for key, value in latest.items() %}
+    <tr>
+      <th>{{ key }}</th>
+      <td>{{ value }}</td>
+    </tr>
+    {% endfor %}
+</table>
 {% endblock %}
 

@@ -9,4 +9,6 @@ bp = Blueprint("index", __name__)
 
 @bp.route("/")
 def weather():
-    return render_template("index.html", last_measurement="heute")
+    f = open(current_app.config['LATEST'], "r")
+    data = json.load(f)
+    return render_template("index.html", latest=data)
