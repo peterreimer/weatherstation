@@ -1,5 +1,5 @@
 venv/
-plot/
+plot/log
 .vscode
 *.pyc
 __pycache__/

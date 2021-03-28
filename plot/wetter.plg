@@ -1,0 +1,84 @@
+set terminal svg dynamic mouse size 1000,1800
+set output "plot.svg"
+#set terminal postscript eps color
+#set output "plot.eps"
+
+set key autotitle columnhead
+# call with gnuplot -e "DATA='20200821.csv'" wetter.plg
+# DATA = "20200821.csv"
+#  1 date,
+#  2 temp_outdoor,
+#  3 temp_windchill,
+#  4 temp_dewpoint,
+#  5 temp_indoor,
+#  6 pressure_abs,
+#  7 pressure_rel,
+#  8 rain_rate,
+#  9 rain_daily,
+# 10 rain_weekly,
+# 11 rain_monthly,
+# 12 rain_yearly,
+# 13 humidity_indoor,
+# 14 humidity_outdoor,
+# 15 solarradiation,
+# 16 uv_index,
+# 17 wind_speed,
+# 18 wind_gust,
+# 19 wind_direction,
+# 20 wind_compass,
+# 21 wind_beaufort
+stats DATA nooutput
+set datafile separator ','
+set xdata time
+set timefmt "%Y-%m-%dT%H:%M:%S"
+
+set tmargin 0
+set bmargin 0
+set lmargin 25
+set rmargin 35
+set grid x
+set format x ""
+
+set multiplot layout 7,1 columnsfirst scale 1.1,0.9
+
+# Temperaturen
+set ylabel "Temperatur [°C]"
+unset y2tics
+plot DATA using 1:2 with lines title "Temperatur", \
+     DATA using 1:4 with lines title "Taupunkt"
+
+# Luftdruck
+set ylabel "Druck [hPa]"
+set ytics 1
+set mytics 2
+unset y2tics
+plot DATA every 10 using 1:6 with lines title "Luftdruck"
+
+# Niederschlag
+set ylabel "Regenmenge [mm]"
+set y2label "Regenrate [mm/h]"
+plot DATA using 1:8 with lines title "Regenrate" axes x1y2, \
+     DATA using 1:9 with lines title "Regen"
+
+# Sonne
+set ylabel "Sonnenstrahlung [W/m²]"
+set ytics 100 nomirror
+set yrange [*:*]
+set y2label "UV-Index"
+set y2range [0:12]
+set y2tics 2
+plot DATA using 1:15 with lines title "Sonne", \
+     DATA using 1:16 with lines title "UV" axes x1y2
+# wind
+set format x  "%H:%M"
+set ylabel "Wind [kmh]"
+set ytics 10 nomirror
+set y2label "Richtung [°]"
+set y2range [0:360]
+set y2tics 90
+#set y2tics add ('' 0, 'NO' 45, 'O' 90, 'SO' 135, 'S' 180, 'SW' 225, 'W' 270, 'NW' 315, 'N' 360)
+set y2tics add ('N' 0, 'O' 90, 'S' 180, 'W' 270, 'N' 360)
+plot DATA every 5 using 1:17 w l title "Wind", \
+     DATA every 5 using 1:18 w l title "Bö", \
+     DATA every 5 using 1:19 w p title "Richtung" axes x1y2
+unset multiplot
