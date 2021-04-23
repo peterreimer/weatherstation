@@ -69,7 +69,8 @@ set y2range [0:12]
 set y2tics 2
 plot DATA using 1:15 with lines title "Sonne", \
      DATA using 1:16 with lines title "UV" axes x1y2
-# wind
+
+# Wind
 set format x  "%H:%M"
 set ylabel "Wind [kmh]"
 set ytics 10 nomirror

@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 {% block title %}Dashboard{% endblock %}
 {% block content %}
+
+<a href="{{ url_for('index.weather') }}{{ previous }}">zurück</a>
+<a href="{{ url_for('index.weather') }}{{ next }}">vor</a>
+<h3>{{ date }}</h3>
+{{ the_div|safe }}
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-2.3.0.min.js"></script>
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-2.3.0.min.js"></script>
+{{ the_script|safe  }}
+
+
 <table>
     {% for key, value in latest.items() %}
     <tr>

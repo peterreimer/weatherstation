@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='weatherstation',
-    version='0.2.2',
+    version='0.3.3',
 	author='Peter Reimer',
     author_email='peter@4pi.org',
     packages=find_packages(),
@@ -14,6 +14,8 @@ setup(
     ],
     install_requires=[
         'flask',
-        'numpy'
+        'numpy',
+        'pandas',
+        'bokeh'
     ],
 )
