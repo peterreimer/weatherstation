@@ -24,7 +24,8 @@ $ sudo apt install python3-venv
 $ cd /opt/weatherstation
 $ sudo python3 -m venv venv
 <copy fourpi.weatherstation-0.0.1-py3-none-any.whl> 
-$sudo venv/bin/pip install fourpi.weatherstation-0.0.1-py3-none-any.whl
+$ sudo venv/bin/pip install fourpi.weatherstation-0.0.1-py3-none-any.whl
+$ sudo venv/bin/pip install uwsgi
 ```
 
 
